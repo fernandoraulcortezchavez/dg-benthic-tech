@@ -1,64 +1,105 @@
 /* CUSTOM PROPERTIES
 -------------------------------*/
 :root {
-  --darkgray:       #333333;
-  --darkslateblue:  #4028d8b7;
-  --color-dark:     var(--darkgray);
-  --color-primary:  var(--darkslateblue);
+  --darkgray:        #333333;
+  --blacky:          #1f1f1f;
+  --darkpurple:      #4028d8b7;
+  --marineblue:      #0b57d0; /* rgb(11 87 208) */
+  --purpleblue:      #483d8b;
+  --whitesmoke:      #f5f5f5;
+  --color-dark:       var(--darkgray);
+  --color-light:      var(--whitesmoke);
+  --color-primary:    var(--marineblue);
 }
-
 
 /* Global Styles
 -------------------------------*/
-body {
-  background-color: white;
-  color: black;
+/*Alternative box model*/
+/* html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
+html, body{
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+} */
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
 h3 {
   font-size: 1rem;
 }
 
-.bg-primary {
-  background-color: var(--color-primary);
-  color: white;
+/* Global reusable classes */
+.bg-dark {
+  background: var(--color-dark);
+  color: var(--color-light)
 }
-
+.bg-light {
+  background: var(--color-light);
+  color: var(--color-dark)
+}
+.bg-primary {
+  background: var(--color-primary);
+  color: var(--color-light)
+}
+.list-reset {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 .content-wrap {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 60px;
+  padding: 30px;
 }
+
+
+a {
+  color: var(--color-dark);
+}
+.bg-dark a, .bg-primary a {
+  color: var(--color-light);
+}
+
+
+
 
 /* Header + Nav
 -------------------------------*/
 header {
-  height: 300px;
-  background-image: linear-gradient(rgb(72 61 139 / .5),
-                                    rgb(72 61 139 / .5)),
+  height: 100%;
+  background-image: linear-gradient(rgb(11 87 208 / .5),
+                                    rgb(11 87 208 / .5)),
                                     url(images/bg-scientist-observing.jpg);
   background-repeat: no-repeat;
-  background-position:center;
+  background-position: center;
   background-size: cover;
+  color: var(--color-light);
 }
 
 nav {
-  position: fixed;
-  top: 0;
+  /* position: fixed; */
+  /* top: 0;
   left: 0;
   right: 0;
-  height: 60 px;
+  height: 60 px; */
 }
 
 .nav-list {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
 }
-
 .nav-list a {
   text-decoration: none;
 }
-
 .nav-list a:hover {
   text-decoration: underline;
 }
@@ -69,10 +110,11 @@ nav {
 .welcome h2 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 30pt;
+  /* margin-bottom: 0; */
 }
 
 .welcome p {
-  margin: 10px;
+  margin-top: 10px;
 }
 
 /* Main content wrap
@@ -91,8 +133,9 @@ nav {
 /* Left Side
 -------------------------------*/
 .side-gallery img {
-  margin-top: 10px;
-  max-width: 80%;
+  display: block;
+  margin: 0 auto;
+  max-width: 95%;
 }
 
 

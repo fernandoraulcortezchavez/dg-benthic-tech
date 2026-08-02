@@ -5,10 +5,8 @@ function Header() {
   return (
     <header>
       <nav class="bg-dark">
-        <ul class="nav-list">
+        <ul class="nav-list list-reset">
           <li><a href="/">Home</a></li>
-        </ul>
-        <ul>
           <li><a href="/staff">Staff</a></li>
         </ul>
       </nav>
@@ -21,7 +19,7 @@ function Header() {
 
 function Announcements() {
   return (
-    <section id="announcements" class="announcements">
+    <section id="announcements" class="announcements bg-light">
       <h2>Corporate Announcements & Safety Bulletins</h2>
 
       {/* ANNOUNCEMENT 1 */}
@@ -101,7 +99,9 @@ function App() {
       </main>
 
       {/* FOOTER */}
-      <footer>
+      <footer class="bg-dark">
+        <h2>We're looking for you!</h2>
+        <p>Email us at <a href="mailto:lab@benthic.com">lab@benthic.com</a></p>
       </footer>
     </>
   );
