@@ -19,7 +19,7 @@ function Header() {
 
 function Announcements() {
   return (
-    <section id="announcements" class="announcements bg-light">
+    <section id="announcements" class="announcements">
       <h2>Corporate Announcements & Safety Bulletins</h2>
 
       {/* ANNOUNCEMENT 1 */}
@@ -86,8 +86,8 @@ function App() {
           </div>
         </section>
 
-
-        <div class="content-wrap main-content-container">
+        {/* GALLERY + ANNOUNCEMENTS */}
+        <div class="content-wrap main-content-container bg-light">
           {/* LEFT SECTION - GALLERY */}
           <section id="side-gallery" class="side-gallery">
             <img src={scientists} alt="Benthic Scientists" />
@@ -102,6 +102,7 @@ function App() {
       <footer class="bg-dark">
         <h2>We're looking for you!</h2>
         <p>Email us at <a href="mailto:lab@benthic.com">lab@benthic.com</a></p>
+        <p class="copyright">© 2026 Benthic Technologies Inc.</p>
       </footer>
     </>
   );
