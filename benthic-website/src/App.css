@@ -1,64 +1,127 @@
 /* CUSTOM PROPERTIES
 -------------------------------*/
 :root {
-  --darkgray:       #333333;
-  --darkslateblue:  #4028d8b7;
-  --color-dark:     var(--darkgray);
-  --color-primary:  var(--darkslateblue);
+  --darkgray:        #333333;
+  --blacky:          #1f1f1f;
+  --darkpurple:      #4028d8b7;
+  --marineblue:      #0b57d0; /* rgb(11 87 208) */
+  --purpleblue:      #483d8b;
+  --whitesmoke:      #f5f5f5;
+  --color-dark:       var(--darkgray);
+  --color-light:      var(--whitesmoke);
+  --color-primary:    var(--marineblue);
+  --font-size-h1:         5.5rem;
+  --font-size-h2:         2.4rem;
+  --font-size-h3:         1.2rem;
+  --font-size-h4:         1rem;
+  --font-size-base:       1rem;
+  --font-size-welcome:    1.4rem;
+  --font-size-tagline:    1rem;
+  --font-size-small:      0.8rem;
 }
-
 
 /* Global Styles
 -------------------------------*/
+/*Alternative box model*/
+/* html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html, body{
+  height: 100%;
+}*/
+
 body {
-  background-color: white;
-  color: black;
-}
+  font-size: var(--font-size-base);
+  line-height: 1.4;
+} 
 
+h1, h2, h3, h4 {
+  margin: 0;
+}
+h1 {
+  font-size: var(--font-size-h1);
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
 h3 {
-  font-size: 1rem;
+  font-size: var(--font-size-h3);
 }
 
+/* Global reusable classes */
+.bg-dark {
+  background: var(--color-dark);
+  color: var(--color-light)
+}
+.bg-light {
+  background: var(--color-light);
+  color: var(--color-dark)
+}
 .bg-primary {
-  background-color: var(--color-primary);
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-light)
+}
+.list-reset {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.content-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
 }
 
-.content-wrap {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 60px;
+a {
+  color: var(--color-dark);
 }
+.bg-dark a, .bg-primary a {
+  color: var(--color-light);
+}
+
 
 /* Header + Nav
 -------------------------------*/
 header {
-  height: 300px;
-  background-image: linear-gradient(rgb(72 61 139 / .5),
-                                    rgb(72 61 139 / .5)),
+  height: 100%;
+  background-image: linear-gradient(rgb(11 87 208 / .5),
+                                    rgb(11 87 208 / .5)),
                                     url(images/bg-scientist-observing.jpg);
   background-repeat: no-repeat;
-  background-position:center;
+  background-position: center;
   background-size: cover;
+  color: var(--color-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-
+header hgroup {
+  border: 5px solid var(--color-light);
+  padding: 30px;
+}
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 60 px;
+  height: 60px;
 }
-
 .nav-list {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
-
 .nav-list a {
+  display: inline-block;
+  padding: 20px;
+  font-weight: bold;
   text-decoration: none;
+  text-transform: capitalize;
 }
-
 .nav-list a:hover {
   text-decoration: underline;
 }
@@ -66,42 +129,42 @@ nav {
 
 /* Welcome
 -------------------------------*/
+.welcome {
+  font-size: var(--font-size-welcome);
+  text-align: center;
+}
 .welcome h2 {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 30pt;
+  /* margin-bottom: 0; */
 }
 
-.welcome p {
-  margin: 10px;
-}
 
 /* Main content wrap
 -------------------------------*/
 .main-content-container {
-  border-color: black;
-  border-width: 5px;
   display: grid;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 380px 1fr;
   grid-template-rows: 1fr;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 25px;
+  /* margin-top: 20px; */
+}
+.main-content-container.content-wrap {
+  max-width: 1000px;
 }
 
 
-/* Left Side
+/* Left Side - Gallery
 -------------------------------*/
 .side-gallery img {
-  margin-top: 10px;
-  max-width: 80%;
+  display: block;
+  max-width: 100%;
 }
-
 
 
 /* Right side - Announcements
 -------------------------------*/
 .announcements {
   font-family: Arial;
-  font-size: 12pt;
   grid-column: 2 / 3;
   text-align: left;
 }
@@ -109,17 +172,25 @@ nav {
 .announcements h2 {
   color: dodgerblue;
   font-family: Cambria;
-  font-size: 28pt;
+  margin-top: -13px;
   margin-bottom: 20px;
 }
 
 .announcement-item {
   margin-bottom: 30px;
 }
-
-.announcement-item h3 {
-  margin-bottom: 5px;
+.announcement-item p {
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 /* Footer
 -------------------------------*/
+footer {
+  text-align: center;
+  padding: 30px;
+}
+
+.copyright {
+  font-size: var(--font-size-small);
+}

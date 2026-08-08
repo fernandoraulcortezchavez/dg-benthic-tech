@@ -5,10 +5,8 @@ function Header() {
   return (
     <header>
       <nav class="bg-dark">
-        <ul class="nav-list">
+        <ul class="nav-list list-reset">
           <li><a href="/">Home</a></li>
-        </ul>
-        <ul>
           <li><a href="/staff">Staff</a></li>
         </ul>
       </nav>
@@ -88,8 +86,8 @@ function App() {
           </div>
         </section>
 
-
-        <div class="content-wrap main-content-container">
+        {/* GALLERY + ANNOUNCEMENTS */}
+        <div class="content-wrap main-content-container bg-light">
           {/* LEFT SECTION - GALLERY */}
           <section id="side-gallery" class="side-gallery">
             <img src={scientists} alt="Benthic Scientists" />
@@ -101,7 +99,10 @@ function App() {
       </main>
 
       {/* FOOTER */}
-      <footer>
+      <footer class="bg-dark">
+        <h2>We're looking for you!</h2>
+        <p>Email us at <a href="mailto:lab@benthic.com">lab@benthic.com</a></p>
+        <p class="copyright">© 2026 Benthic Technologies Inc.</p>
       </footer>
     </>
   );
