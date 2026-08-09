@@ -34,7 +34,7 @@ jobs:
               # Clear old files
               rm -rf /var/www/benthic-technologies/*
               # Copy new build files
-              cp dist/* /var/www/benthic-technologies/
+              cp -r dist/* /var/www/benthic-technologies/
 
 
 
