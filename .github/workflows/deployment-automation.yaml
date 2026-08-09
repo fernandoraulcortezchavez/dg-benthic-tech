@@ -1,8 +1,10 @@
-name: Benthic GitHub Actions Deployment
+name: Benthic Frontend Redeployment
 
 on: 
   push:
     branches: [main]
+    paths:
+      - 'benthic-website/**'
   workflow_dispatch:
 
 jobs:
@@ -11,6 +13,11 @@ jobs:
   # ---------------------------------------------
     redeploy-frontend:
       runs-on: benthic-hosted
+
+      defaults:
+        run:
+          working-directory: ./benthic-website
+
       steps:
           - name: Checkout code
             uses: actions/checkout@v3
