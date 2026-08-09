@@ -32,7 +32,7 @@ jobs:
               # Clear old files
               rm -rv /var/www/benthic-technologies/*
               # Copy new build files
-              cp dist/* /var/www/react-app/
+              cp dist/* /var/www/benthic-technologies/
 
 
 
