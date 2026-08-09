@@ -8,6 +8,8 @@ function Header() {
         <ul class="nav-list list-reset">
           <li><a href="/">Home</a></li>
           <li><a href="/staff">Staff</a></li>
+          {/* HEY, INTERN, YOU'RE SUPPOSED TO REMOVE THIS MENU ITEM, NOT JUST HIDE IT!!!*/}
+          <li style="visibility: hidden"><a href="/research">Research</a></li>
         </ul>
       </nav>
       <hgroup>
