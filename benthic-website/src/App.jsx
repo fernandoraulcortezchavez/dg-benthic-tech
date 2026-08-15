@@ -1,10 +1,15 @@
 import './App.css'
-import scientists from "./images/img-scientists.jpg"
+import img_scientists_board from "./images/img-scientists.jpg"
+import img_diver from "./images/image-diver-measuring.jpg"
+import img_dna from "./images/image-dna.jpg"
+import img_scientists_smiling from "./images/image-scientists-smiling.jpg"
+
+let isUserEmployee = false;
 
 function Header() {
   return (
     <header>
-      <nav className="bg-dark">
+      <nav className="bg-darkest">
         <ul className="nav-list list-reset">
           <li><a href="/">Home</a></li>
           <li><a href="/staff">Staff</a></li>
@@ -70,6 +75,64 @@ function Announcements() {
   );
 }
 
+function CentralBody({isEmployee}) {
+  return (
+    <>
+      {/* PUBLIC OR EMPLOYEE BODY SECTION */}
+      {!isEmployee && <PublicBody />}
+      {isEmployee && <EmployeeBody/>}
+    </>
+  );
+}
+
+function EmployeeBody() {
+  return (
+    <>
+      {/* GALLERY + ANNOUNCEMENTS */}
+      <div className="content-wrap main-content-container bg-light">
+        {/* LEFT SECTION - GALLERY */}
+        <section id="side-gallery" className="side-gallery">
+          <img src={img_scientists_board} alt="Benthic Scientists" />
+        </section>
+
+        {/* RIGHT SECTION - ANNOUNCEMENTS */}
+        <Announcements />
+      </div>
+    </>
+  );
+}
+
+function PublicBody() {
+  return (
+    <>
+      <section className="about-section">
+        <div className="content-wrap">
+          <h2>Our Research</h2>
+
+          <div className="scrolly-telling-container">
+            <p className="block-left">From bio-industrial catalysts that withstand impossible conditions to revolutionary cellular therapies, Benthic is proud to engineer a cleaner, healthier, and more resilient tomorrow.</p>
+
+            <img src={img_diver} alt="A diver measuring a coral"/>
+
+            <p className="block-right">Where extreme nature meets human ingenuity.</p>
+
+            <img src={img_dna} alt="A DNA strand"/>
+
+            <p className="block-left">Adapting to the Impossible.</p>
+
+            <img src={img_scientists_smiling} alt="Benthic scientists smiling"/>
+
+            <i>We are Benthic</i>
+
+          </div>
+
+        </div>
+      </section>
+
+    </>
+  );
+}
+
 function App() {
   return (
     <>
@@ -88,20 +151,11 @@ function App() {
           </div>
         </section>
 
-        {/* GALLERY + ANNOUNCEMENTS */}
-        <div className="content-wrap main-content-container bg-light">
-          {/* LEFT SECTION - GALLERY */}
-          <section id="side-gallery" className="side-gallery">
-            <img src={scientists} alt="Benthic Scientists" />
-          </section>
-
-          {/* RIGHT SECTION - ANNOUNCEMENTS */}
-          <Announcements />
-        </div>
+        <CentralBody isEmployee={isUserEmployee} />
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-dark">
+      <footer className="bg-darkest">
         <h2>We're looking for you!</h2>
         <p>Email us at <a href="mailto:lab@benthic.com">lab@benthic.com</a></p>
         <p className="copyright">© 2026 Benthic Technologies Inc.</p>
