@@ -256,7 +256,13 @@ nav {
   margin-left: auto;
 }
 
-
+/* Staff Roster
+-------------------------------*/
+.roster-section img {
+  display: block;
+  max-width: 80%;
+  margin: 0 auto;
+}
 
 /* Footer
 -------------------------------*/
