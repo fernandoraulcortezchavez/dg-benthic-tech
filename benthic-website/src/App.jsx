@@ -1,23 +1,31 @@
 import './App.css'
-import scientists from "./images/img-scientists.jpg"
+import img_scientists_board from './images/img-scientists.jpg'
+import img_diver from "./images/image-diver-measuring.jpg"
+import img_dna from "./images/image-dna.jpg"
+import img_scientists_smiling from './images/image-scientists-smiling.jpg'
+import img_roster from './images/image-staff-roster.jpg'
+import Layout from './Layout'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-function Header() {
-  return (
-    <header>
-      <nav className="bg-dark">
-        <ul className="nav-list list-reset">
-          <li><a href="/">Home</a></li>
-          <li><a href="/staff">Staff</a></li>
-          {/* HEY, INTERN, YOU'RE SUPPOSED TO REMOVE THIS MENU ITEM, NOT JUST HIDE IT!!!*/}
-          <li style={{ visibility: "hidden" }}><a href="/research">Research</a></li>
-        </ul>
-      </nav>
-      <hgroup>
-        <h1>Benthic Technologies</h1>
-      </hgroup>
-    </header>
-  );
-}
+let isUserEmployee = false;
+
+const routes = [{
+  path: '/',
+  element: <Layout/>,
+  children: [{
+    path: '/',
+    element: <PublicBody/>
+  }, {
+    path: '/staff',
+    element: <EmployeeBody/>
+  }, {
+    path: '/roster',
+    element: <RosterBody/>
+  }]
+}];
+
+
+const router = createBrowserRouter(routes);
 
 function Announcements() {
   return (
@@ -70,42 +78,81 @@ function Announcements() {
   );
 }
 
+function CentralBody({isEmployee}) {
+  return (
+    <>
+      {/* PUBLIC OR EMPLOYEE BODY SECTION */}
+      {!isEmployee && <PublicBody />}
+      {isEmployee && <EmployeeBody/>}
+    </>
+  );
+}
+
+function EmployeeBody() {
+  return (
+    <>
+      {/* GALLERY + ANNOUNCEMENTS */}
+      <div className="content-wrap main-content-container bg-light">
+        {/* LEFT SECTION - GALLERY */}
+        <section id="side-gallery" className="side-gallery">
+          <img src={img_scientists_board} alt="Benthic Scientists" />
+        </section>
+
+        {/* RIGHT SECTION - ANNOUNCEMENTS */}
+        <Announcements />
+      </div>
+    </>
+  );
+}
+
+function PublicBody() {
+  return (
+    <>
+      <section className="about-section">
+        <div className="content-wrap">
+          <h2>Our Research</h2>
+
+          <div className="scrolly-telling-container">
+            <p className="block-left">From bio-industrial catalysts that withstand impossible conditions to revolutionary cellular therapies, Benthic is proud to engineer a cleaner, healthier, and more resilient tomorrow.</p>
+
+            <img src={img_diver} alt="A diver measuring a coral"/>
+
+            <p className="block-right">Where extreme nature meets human ingenuity.</p>
+
+            <img src={img_dna} alt="A DNA strand"/>
+
+            <p className="block-left">Adapting to the Impossible.</p>
+
+            <img src={img_scientists_smiling} alt="Benthic scientists smiling"/>
+
+            <i>We are Benthic</i>
+
+          </div>
+
+        </div>
+      </section>
+    </>
+  );
+}
+
+function RosterBody() {
+  return (
+  <>
+  <section className="roster-section">
+    <div className="content-wrap bg-light">
+        <h2>Roster for this week:</h2>
+        <img src={img_roster} alt="roster table"/>
+    </div>
+  </section>
+
+  </>
+  );
+}
+
 function App() {
   return (
     <>
-      {/* HEADER */}
-      <Header />
-
-      {/* MAIN */}
-      <main>
-        {/* WELCOME SECTION */}
-        <section id="welcome" className="bg-primary welcome">
-          <div className="content-wrap">
-            <h2>Deep Solutions for Human Health</h2>
-            <p>Welcome to the Benthic Technologies Internal Network.</p>
-            <p>At Benthic, we believe that the world’s greatest challenges require us to look deeper. Founded in 2018 in the historic mining district of Helena, Montana, our state-of-the-art facility bridges the gap between extreme environments and cellular revolution. By isolating and studying extremophilic organisms from deep-earth ecosystems, our dedicated team is unlocking the keys to advanced bioremediation, cellular longevity, and unprecedented neural-regeneration therapies.</p>
-            <i>“Where nature meets the extreme, Benthic finds the cure.”</i>
-          </div>
-        </section>
-
-        {/* GALLERY + ANNOUNCEMENTS */}
-        <div className="content-wrap main-content-container bg-light">
-          {/* LEFT SECTION - GALLERY */}
-          <section id="side-gallery" className="side-gallery">
-            <img src={scientists} alt="Benthic Scientists" />
-          </section>
-
-          {/* RIGHT SECTION - ANNOUNCEMENTS */}
-          <Announcements />
-        </div>
-      </main>
-
-      {/* FOOTER */}
-      <footer className="bg-dark">
-        <h2>We're looking for you!</h2>
-        <p>Email us at <a href="mailto:lab@benthic.com">lab@benthic.com</a></p>
-        <p className="copyright">© 2026 Benthic Technologies Inc.</p>
-      </footer>
+    <RouterProvider router={router} />
     </>
   );
 }
