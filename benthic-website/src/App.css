@@ -115,7 +115,8 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  /* height: 60px; */
+  height: fit-content;
   z-index: 9999;
 }
 .nav-list {
@@ -131,6 +132,15 @@ nav {
 }
 .nav-list a:hover {
   text-decoration: underline;
+}
+.nav-list button {
+  display: block;
+  padding: 20px;
+  height: 100%;
+}
+
+a.active{
+  background-color: var(--darkgray);
 }
 
 

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import useUser from '../useUser'
 import { mockAuth } from '../mockAuth'
 import { useNavigate } from 'react-router-dom';
@@ -10,16 +10,16 @@ export default function NavBar() {
     return (
         <nav className="bg-darkest">
             <ul className="nav-list list-reset">
-                <li><Link to="/">Home</Link></li>
+                <li><NavLink to="/">Home</NavLink></li>
                 {user &&
                 <>
-                <li><Link to="/staff">Staff</Link></li>
+                <li><NavLink to="/staff">Staff</NavLink></li>
                 {/* HEY, INTERN, YOU'RE SUPPOSED TO REMOVE THIS MENU ITEM, NOT JUST HIDE IT!!!*/}
                 <li style={{ visibility: "hidden" }}>
                     <a href="/other_assets">Other Assets</a>
                 </li>
                 <li>
-                    <Link to="/roster">Roster</Link>
+                    <NavLink to="/roster">Roster</NavLink>
                 </li>
                 </>
                 }
