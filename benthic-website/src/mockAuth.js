@@ -12,7 +12,7 @@ export const mockAuth = {
     },
 
     loginWithEmailAndPassword: async (email, password) => {
-        if (email == "brentmccaslin@benthic.com" && password == "Iamthecoolestdoc67") {
+        if (email == "brentmccaslan@benthic.com" && password == "Iamthecoolestdoc67") {
             currentUser = { email: email, name: "Brent McCaslin", role: "employee"};
         }
         else {
