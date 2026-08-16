@@ -6,6 +6,7 @@ import img_scientists_smiling from './images/image-scientists-smiling.jpg'
 import img_roster from './images/image-staff-roster.jpg'
 import Layout from './Layout'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Login from './components/Login'
 
 let isUserEmployee = false;
 
@@ -22,6 +23,10 @@ const routes = [{
     path: '/roster',
     element: <RosterBody/>
   }]
+}, 
+{
+  path: '/login',
+  element: <Login />
 }];
 
 
